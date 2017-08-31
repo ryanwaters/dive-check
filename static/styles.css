@@ -1,0 +1,15 @@
+.navbar {
+	background-color: #34495e;
+}
+
+.navbar a {
+	color: white;
+}
+
+.chart {
+	max-width: 15em;
+}
+
+img {
+	max-width: 10em
+}

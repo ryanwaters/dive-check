@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+{% endblock %}
+
+{% block title %} Dive Check {% endblock %}
+
+{% block navbar %}
+<div class='navbar navbar-inverse' role='navigation'>
+	<div class='navbar-header'>
+		<a class='navbar-brand' href="/"><span class='glyphicon glyphicon-home'></span> Dive Check</a>
+		<ul class="nav navbar-nav">
+			<li>
+				<a href="/register"><span class='glyphicon glyphicon-user'></span> Register</a>
+			</li>
+			<li>
+				<a href="/logout"><span class='glyphicon glyphicon-remove'></span> Logout</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class='well well-sm'>
+	<a href="http://magicseaweed.com"><img src="https://im-1-uk.msw.ms/msw_powered_by.png"></a>
+	<a href="http://magicseaweed.com"><img src="https://www.twilio.com/marketing/bundles/company-brand/img/powered-by/default/twilio-seal-default.svg"></a>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	{% block page_content %}{% endblock %}
+</div>
+{% endblock %}

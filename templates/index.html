@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+	<div class='container'>
+	{% for message in get_flashed_messages() %}
+	<div class='alert alert-warning'>
+		<button type='button' class='close' data-dismiss='alert'>&times;</button>
+		{{ message }}
+	</div>
+	{% endfor %}
+	
+		<h1>Current Conditions</h1>
+		<div class='row'>
+			<div class='col-sm-6 sonoma'>
+				<h3>Sonoma</h3>
+				
+				<ul class='media-list'>
+					{% for report in current.sonoma %}
+						<li class='media'>
+							<div class='media-left'>
+								<img class='media-object chart img-rounded' style='max-width: 15em' src="{{report.charts.swell}}">
+							</div>
+
+							<div class='media-body'>
+								<p>{{report.localTimestamp | dateformat }}</p>
+								<p>Wind Direction: {{report.wind.compassDirection | upper}}</p>
+								<p>Wind Speed: {{report.wind.speed}} mph</p>
+								<p>Avg Wave Height: {{report.swell.components.primary.height}} ft</p>
+								<p>Avg Swell Period: {{report.swell.components.primary.period}} seconds</p>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<div class='col-sm-6 mendo'>
+				<h3>Mendocino</h3>
+				<ul class='media-list'>
+					{% for report in current.mendo %}
+						<li class='media'>
+							<div class='media-left'>
+								<img class='media-object chart img-rounded' style='max-width: 15em' src="{{report.charts.swell}}">
+							</div>
+
+							<div class='media-body'>
+								<p>{{report.localTimestamp | dateformat }}</p>
+								<p>Wind Direction: {{report.wind.compassDirection | upper}}</p>
+								<p>Wind Speed: {{report.wind.speed}} mph</p>
+								<p>Avg Wave Height: {{report.swell.components.primary.height}} ft</p>
+								<p>Avg Swell Period: {{report.swell.components.primary.period}} seconds</p>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>	
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
